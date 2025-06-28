@@ -38,21 +38,45 @@ It supports real-time communication via HTTP, and features a web-based dashboard
 ```
 ## 📂 Project Structure
 
-📁 smart-building-attendance-system/
-├── index.php → Dashboard landing/login
-├── register_user.php → User registration via RFID
-├── manage_users.php → View/edit/delete users
-├── attendance.php → View check-in/check-out logs
-├── generate_qr.php → Convert RFID to QR code
-├── scan_qr_handler.php → Handle scanned QR from ESP32
-├── qr_checkin_log.php → Logs for QR-based check-ins
-├── scanned_rfid.php → Display latest scanned RFID
-├── parking_logs.php → ESP32 parking data logs
-├── room_control.php → Control Room 1 & 2 GPIO states
-├── esp32_post_handler.php → HTTP POST data from ESP32
-├── database.sql → MySQL DB structure
-├── style.css → UI styling
-└── README.md
+├── 📡 ESP32 Firmware
+│ ├── ScanRFID.ino → RFID scanning and send to server
+│ ├── qrattendance.ino → QR attendance via scanner
+│ ├── parkingesp32.ino → Parking ESP32 HTTP communication
+│ ├── unlockdoor1.ino → Control Room 1 door
+│ ├── unlockdoor2.ino → Control Room 2 door
+│ ├── camera_pins.h → (if using ESP32-CAM pinout)
+│
+├── 🌐 Frontend Files
+│ ├── index.html → Landing page
+│ ├── dashboard.html → Dashboard UI
+│ ├── register.html → Registration form
+│ ├── manage_pins.html → Manage Room 1 and 2
+│ ├── styles.css, stylespin.css → Style sheets
+│ ├── user_management.css → Admin panel styles
+│ ├── background.png → Dashboard background
+│
+├── 💾 Backend Logic (PHP)
+│ ├── attendance.php → Attendance dashboard
+│ ├── access_logs.php → Show access logs
+│ ├── save_rfid.php → Register RFID to DB
+│ ├── check_rfid.php/.php2 → Validate scanned RFID
+│ ├── check_user.php → User existence verification
+│ ├── check_qr.php → Validate scanned QR code
+│ ├── display_users.php → Show user list
+│ ├── manage_users.php → Full user management
+│ ├── edit_user.php → Edit user info
+│ ├── delete_user.php → Delete a user
+│ ├── check_pin.php → Status of Room 1/2
+│ ├── update_pins.php → Set Room GPIO status
+│ ├── get_pins.php → Get pin state
+│ ├── query_rfid.php → RFID query helper
+│ ├── submit.php → Registration handler
+│ ├── scanned_rfid.php → Show scanned RFID log
+│
+├── 📸 QR Code
+│ ├── qrcode_script.js → Generate QR from RFID in frontend
+│
+└── 📄 README.md → You're here!
 
 ---
 ```
