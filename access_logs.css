@@ -1,0 +1,156 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #555;
+  --accent-color: #FF5733;
+  --light-gray: #ccc;
+  --white: #fff;
+  --hover-gray: #f2f2f2;
+  --secondary-hover: #777;
+  --semi-transparent-black: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  background-image: url('background.png'); /* Add the background image */
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  background-color: var(--semi-transparent-black); /* Semi-transparent background */
+  color: var(--white); /* White text */
+  padding: 20px; /* Increased padding for better spacing */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 24px; /* Increased font size for better visibility */
+  margin: 0 0 10px 0; /* Add spacing below the title */
+  text-align: center; /* Ensure text is centered */
+}
+
+header .redirect-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px; /* Adjusted padding for better button size */
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+header .redirect-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+footer {
+  width: 100%;
+  background-color: var(--semi-transparent-black); /* Semi-transparent background */
+  color: var(--white); /* White text */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content */
+  position: relative;
+  z-index: 10;
+}
+
+header h1, footer h1 {
+  font-size: 20px;
+  margin: 0;
+  text-align: center; /* Ensure text is centered */
+}
+
+header .logo, footer .logo {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+main {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  width: 90%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: var(--white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table, th, td {
+  border: 1px solid var(--light-gray);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: left;
+  padding: 12px;
+  font-size: 16px;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--hover-gray);
+}
+
+tr:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+td[colspan="4"] {
+  text-align: center;
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}

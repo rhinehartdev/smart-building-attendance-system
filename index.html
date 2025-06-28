@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32-CAM QR Code Scanner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    #camera {
+      width: 100%;
+      max-width: 600px;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+</head>
+<body>
+  <h1>ESP32-CAM QR Code Scanner</h1>
+  <div id="reader" style="width: 600px;"></div>
+  <div id="result">Scanning for QR code...</div>
+  <script>
+    function onScanSuccess(qrCodeMessage) {
+      // Assume the QR code contains the RFID value
+      document.getElementById('result').innerText = "QR Code: " + qrCodeMessage;
+      fetch('http://your_server/check_user.php?rfid=' + qrCodeMessage)
+        .then(response => response.text())
+        .then(result => {
+          document.getElementById('result').innerText = result;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    function onScanError(errorMessage) {
+      // Handle scan error
+      console.error('Error:', errorMessage);
+    }
+
+    // Initialize the QR code scanner
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Room PINs</title>
+  <link rel="stylesheet" type="text/css" href="stylespin.css">
+</head>
+<body>
+  <header>
+    <h2>Room Security Management</h2>
+  </header>
+  <div class="form-container">
+    <h1>Manage Room PINs</h1>
+    <form action="update_pins.php" method="POST">
+      <div class="form-group">
+        <label for="room1">Room 1 PIN:</label>
+        <input type="text" id="room1" name="room1" value="">
+      </div>
+      <div class="form-group">
+        <label for="room2">Room 2 PIN:</label>
+        <input type="text" id="room2" name="room2" value="">
+      </div>
+      <div class="form-group">
+        <label for="master">Master PIN:</label>
+        <input type="text" id="master" name="master" value="">
+      </div>
+      <div class="form-group">
+        <button type="submit">Update PINs</button>
+      </div>
+    </form>
+    <button class="back-button" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </div>
+
+  <script>
+    // Fetch current PINs and populate the form fields
+    fetch('get_pins.php')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('room1').value = data.room1;
+        document.getElementById('room2').value = data.room2;
+        document.getElementById('master').value = data.master;
+      });
+  </script>
+</body>
+</html>

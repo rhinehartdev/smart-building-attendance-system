@@ -1,0 +1,225 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #555;
+  --accent-color: #FF5733;
+  --light-gray: #ccc;
+  --white: #fff;
+  --semi-transparent-white: rgba(255, 255, 255, 0.9);
+  --semi-transparent-black: rgba(0, 0, 0, 0.7);
+  --hover-gray: #f2f2f2;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color);
+  background-image: url('background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-style {
+  background-color: var(--semi-transparent-white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.dashboard, .content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.header {
+  background-color: var(--semi-transparent-black);
+  color: var(--white);
+  padding: 20px;
+  text-align: center;
+}
+
+.page-title {
+  color: var(--accent-color);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+  margin: 5px 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--light-gray);
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: var(--semi-transparent-white);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="submit"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+form input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+.action-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: var(--white); /* Consistent background for all tables */
+}
+
+table, th, td {
+  border: 1px solid var(--light-gray); /* Consistent border for all tables */
+}
+
+th {
+  background-color: #000; /* Black background for headers */
+  color: var(--white); /* White text for headers */
+  text-align: left;
+  padding: 12px;
+}
+
+td {
+  padding: 10px; /* Consistent padding for table cells */
+  text-align: left; /* Align text to the left */
+  color: var(--primary-color); /* Text color for table cells */
+}
+
+tr:nth-child(even) {
+  background-color: var(--hover-gray); /* Alternate row background */
+}
+
+tr:hover {
+  background-color: var(--secondary-color); /* Highlight row on hover */
+  color: var(--white); /* White text on hover */
+  cursor: pointer;
+}
+
+.qr-container {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}

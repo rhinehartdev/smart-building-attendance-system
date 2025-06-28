@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function loadPage(page) {
+      fetch(page)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('main-content').innerHTML = html;
+          const scripts = document.getElementById('main-content').getElementsByTagName('script');
+          for (let script of scripts) {
+            if (script.src) {
+              const newScript = document.createElement('script');
+              newScript.src = script.src;
+              document.body.appendChild(newScript);
+            } else {
+              eval(script.innerText);
+            }
+          }
+        });
+    }
+
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('time').innerText = timeString;
+    }
+
+    window.onload = function() {
+      loadPage('register.html');
+      updateTime();
+      setInterval(updateTime, 1000); // Update the time every second
+    }
+  </script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="header">
+      <h1 class="page-title">Dashboard</h1> <!-- Moved title here -->
+      <nav>
+        <ul>
+          <li><a href="#" onclick="loadPage('register.html')">Register</a></li>
+          <li><a href="#" onclick="loadPage('display_users.php')">Registered Users</a></li>
+          <li><a href="#" onclick="loadPage('attendance.php')">Attendance Records</a></li>
+          <li><a href="manage_users.php">Manage Users</a></li>
+          <li><a href="scanned_rfid.php">Scan RFID</a></li>
+          <li><a href="manage_pins.html">Manage Room PINs</a></li>
+          <li><a href="access_logs.php">Parking Logs</a></li>
+        </ul>
+      </nav>
+      <div id="time" class="time"></div>
+    </div>
+    <div id="main-content" class="main-content"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-image: url('background.png'); /* Add your background image here */
+    background-size: cover; /* Adjust the size of the background image */
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    color: #fff; /* White */
+    padding: 20px;
+    text-align: center; /* Center the text */
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%; /* Smaller width */
+    max-width: 900px; /* Maximum width */
+    margin: 20px;
+  }
+  
+  .action-btn {
+    background-color: #333; /* Black */
+    color: #fff; /* White */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .action-btn:hover {
+    background-color: #555; /* Dark Gray */
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* White */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333; /* Black */
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333; /* Black */
+  }
+  
+  form input[type="submit"] {
+    background-color: #333; /* Black */
+    color: #fff; /* White */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #555; /* Dark Gray */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff; /* White */
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #333; /* Black */
+    color: #fff; /* White */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #555; /* Dark Gray */
+    color: #fff; /* White */
+    cursor: pointer;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .content {
+      width: 90%;
+      margin: 10px;
+    }
+  
+    form {
+      width: 90%;
+    }
+  
+    table, th, td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .action-btn {
+      padding: 5px 8px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .content {
+      width: 95%;
+      margin: 5px;
+    }
+  
+    form {
+      width: 95%;
+    }
+  
+    table, th, td {
+      font-size: 12px;
+      padding: 6px;
+    }
+  
+    .action-btn {
+      padding: 4px 6px;
+      font-size: 12px;
+    }
+  
+    .header h1 {
+      font-size: 20px;
+    }
+  }
+  
